@@ -1,0 +1,16 @@
+.form-group {
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: $color-text;
+    }
+
+    input {
+        min-width: 100px;
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid $color-primary;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+}

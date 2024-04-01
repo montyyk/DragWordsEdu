@@ -1,25 +1,20 @@
-import express from "express";
-import dotenv from "dotenv";
-import bodyParser from "body-parser";
+import express from "express"
+import dotenv from "dotenv"
+dotenv.config()
 
-import * as home from "./controllers/home.controller";
+import connectDB from "./config/db"
+import userRoutes from "./routes/userRoutes"
+import gameRoutes from "./routes/gameRoutes"
+import activeGameRoutes from "./routes/activeGameRoutes"
 
-dotenv.config();
+connectDB()
 
-const app = express();
+const app = express()
+app.use(express.json()) // Middleware for parsing JSON bodies
 
-app.set("port", process.env.SERVER_PORT || 3000);
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.get("/", home.index);
+app.use("/api/users", userRoutes)
+app.use("/api/games", gameRoutes)
+app.use("/api/active-games", activeGameRoutes)
 
-app.listen(app.get("port"), () => {
-  console.log(
-    "App is running at http://localhost:%d in %s mode",
-    app.get("port"),
-    app.get("env")
-  );
-  console.log("Press CTRL-C to stop\n");
-});
-
-export default app;
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
