@@ -137,8 +137,6 @@ const initDragSelect = () => {
     ds.subscribe('DS:end', ({ dropTarget }) => {
         if (!game.value || !dropTarget?.itemsDropped) return
 
-        console.log('Dropped on:', dropTarget)
-
         if (dropTarget?.id === 'zone-1') {
             handleDrop(1, game.value.words[currentItemIdx.value])
         } else if (dropTarget?.id === 'zone-2') {

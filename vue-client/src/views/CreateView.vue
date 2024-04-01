@@ -98,7 +98,6 @@ const createGame = async () => {
         router.push({ name: 'dashboard' })
     } catch (error) {
         toast.error('Could not create game.')
-        console.log(error)
     }
 }
 
@@ -111,7 +110,6 @@ const updateGame = async () => {
         router.push({ name: 'dashboard' })
     } catch (error) {
         toast.error('Could not update game.')
-        console.log(error)
     }
 }
 

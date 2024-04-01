@@ -89,7 +89,6 @@ const toast = useToast()
 const handleLogin = async () => {
     try {
         const response = await authService.login(loginForm.value)
-        console.log('Login successful:', response)
         toast.success('Login successful!')
         router.push({ name: 'dashboard' })
     } catch (error) {
@@ -101,8 +100,8 @@ const handleLogin = async () => {
 const handleRegister = async () => {
     try {
         const response = await authService.register(loginForm.value)
-        console.log('Registration successful:', response)
         toast.success('Registration successful!')
+        isRegistering.value = false
     } catch (error: any) {
         console.error('Registration error:', error)
         toast.error(error.message)

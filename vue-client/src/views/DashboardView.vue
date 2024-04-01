@@ -25,7 +25,6 @@ const toast = useToast()
 const fetchGames = async () => {
     try {
         const data = await gameService.getGames()
-        console.log('Fetched games:', data)
         games.value = data
     } catch (error) {
         console.error('Failed to fetch games:', error)
