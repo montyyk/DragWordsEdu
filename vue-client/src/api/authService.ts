@@ -2,7 +2,7 @@ import { type User } from '@/models/User'
 import axiosInstance from './axiosInstance'
 import { useUser } from '@/composables/useUser'
 import { AxiosError } from 'axios'
-import type { ErrorType } from './errorType'
+import type { ErrorType } from './ErrorType'
 
 interface LoginData {
     email: string
